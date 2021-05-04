@@ -1,0 +1,36 @@
+.result_rearch
+{
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #eee;
+    margin: 20px 0;
+
+    b{
+        font-weight: bold;
+    }
+
+    select
+    {
+        color: #777;
+        border-radius: 0;
+        width: 200px;
+        border: none;
+        height: 25px;
+        background-size: 12px;
+        background-position: right 5px center;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    .result_rearch
+    {
+        padding: 0;
+        flex-flow: column;
+        >div
+        {
+            padding:10px;
+            width: 100%;
+        }
+    }
+}

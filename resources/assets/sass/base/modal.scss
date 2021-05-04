@@ -1,0 +1,29 @@
+.tp_modal
+{
+    position: fixed;
+    top: -100%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    border: 1px solid #dedede;
+    background-color: #dedede;
+    transition: 0.5s;
+    z-index: 99999;
+    
+    .tp_modal_close
+    {
+        position: absolute;
+        right: -13px;
+        width: 25px;
+        height: 25px;
+        background-color: #e91d63;
+        color: white;
+        text-align: center;
+        line-height: 25px;
+        border-radius: 50%;
+        top: -15px;
+    }
+}

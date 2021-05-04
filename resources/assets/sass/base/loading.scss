@@ -1,0 +1,64 @@
+.loading-placeholder {
+    background-color: #fff;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+    .loading_text
+    {
+        display: block;
+        background-color: #eee;
+        opacity: .1;
+        animation: fading 1.5s infinite;
+    }
+
+    .loading_image {
+
+        background-color: #eee;
+        opacity: .1;
+        animation: fading 1.5s infinite;
+    }
+}
+
+@keyframes fading {
+    0% {
+        opacity: .1;
+    }
+
+    10% {
+        opacity: .2;
+    }
+
+    20% {
+        opacity: .2;
+    }
+
+    30% {
+        opacity: .3;
+    }
+
+    40% {
+        opacity: .4;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    60% {
+        opacity: .6;
+    }
+
+    70% {
+        opacity: .7;
+    }
+
+    80% {
+        opacity: .8;
+    }
+
+    90% {
+        opacity: .9;
+    }
+
+    100% {
+        opacity: .2;
+    }
+}

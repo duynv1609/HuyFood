@@ -1,0 +1,45 @@
+.product_categories
+{
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
+    padding-top: 0;
+}
+
+@media only screen and (max-width: 992px){
+    .product_categories
+    {
+        .close_sidebar_mb
+        {
+            position: absolute;
+            right: 0;
+            width: 25px;
+            height: 25px;
+            background-color: #e91d63;
+            color: white;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 50%;
+            &:hover
+            {
+                cursor: pointer;
+            }
+        }
+        &_left {
+            position: fixed;
+            width: 300px !important;
+            left: -300px;
+            transition: 0.5s;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: white;
+            z-index: 9999;
+        }
+
+        &_right
+        {
+            width: 100% !important;
+        }
+    }
+}

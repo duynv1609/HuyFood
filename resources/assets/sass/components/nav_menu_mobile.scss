@@ -1,0 +1,28 @@
+.box_nav_mobile
+{
+    display: none;
+    border-bottom: 1px solid #dedede;
+    background-color: white ;
+    .tp_container
+    {
+        margin-top: 0;
+        .nav_menu_mobile
+        {
+            a {
+                color: #666;
+            }
+        }
+    }
+}
+.nav_menu_mobile
+{
+    justify-content: space-between;
+    padding: 0;
+}
+@media only screen and (max-width: 768px)
+{
+    .box_nav_mobile
+    {
+        display: block;
+    }
+}

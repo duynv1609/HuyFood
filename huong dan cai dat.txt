@@ -1,0 +1,7 @@
+1, cai dat composer
+2, cai dat laravel
+3, cai dat xampp
+4, composer install
+6, cai dat database(co the su dung file dinh kem doantn.sql), chinh sua file env.
+5, php artisan migrate
+7, php artisan serve

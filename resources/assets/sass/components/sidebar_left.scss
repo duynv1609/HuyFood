@@ -1,0 +1,64 @@
+.sidebar_left
+{
+    background: #eee;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+
+    .sidebar_title
+    {
+        color: #333;
+        font-size: 14px;
+        padding: 5px 0;
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .sidebar_nav
+    {
+        ul {
+            li {
+                a {
+                    display: block;
+                    padding: 5px 10px;
+                    color: #333;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    &:hover
+                    {
+                        color: #007bff;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .list_trademark
+        {
+            a {
+                display: block;
+                padding: 5px 10px;
+                color: #333;
+                text-transform: capitalize;
+                font-size: 13px;
+                line-height: 16px;
+            }
+        }
+
+        input {
+            height: 30px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            font-size: 13px;
+            height: 30px;
+            width: 100%;
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+    }
+
+}

@@ -1,0 +1,17 @@
+@media only screen and (max-width: 768px){
+    .course_detail
+    {
+        .width-70 ,.width-30
+        {
+            width:100% !important;
+        }
+        .flex-direction-column
+        {
+            flex-direction: column;
+        }
+    }
+}
+
+@media only screen and (min-width: 992px){
+
+}

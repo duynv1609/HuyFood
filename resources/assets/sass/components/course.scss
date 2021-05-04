@@ -1,0 +1,74 @@
+.course_list
+{
+    .course_item {
+        width: calc(100% / 4 - 20px);
+        margin-left: 20px;
+        margin-bottom: 20px;
+        a{
+            img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    }
+
+    .course_info
+    {
+        &_auth
+        {
+            font-size: 13px;
+            a,p {
+                color: #333;
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px){
+    .product_list
+    {
+        .product_item
+        {
+            width: 100%;
+            margin-left: 0;
+            img {
+                height: 280px !important;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .product_list
+    {
+        .product_item
+        {
+            width: calc(100% / 3 - 10px);
+            margin-left: 10px;
+        }
+    }
+
+    .course_info
+    {
+        &_auth
+        {
+            padding-left: 10px;
+        }
+        &_auth-40
+        {
+            width: 45% !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 992px){
+    .product_list
+    {
+        .product_item
+        {
+            width: calc(100% / 3 - 20px);
+            margin-left: 20px;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+
+$i: 5;
+@while $i <= 100 {
+    .width-#{($i)} {width: #{($i)}% !important;}
+    $i: ($i + 5);
+}

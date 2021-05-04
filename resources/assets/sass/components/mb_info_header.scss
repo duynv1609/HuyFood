@@ -1,0 +1,96 @@
+.mb_info_user
+{
+    display: none;
+}
+
+@media only screen and (max-width: 992px)
+{
+    .close_mb_user
+    {
+        position: absolute;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        background-color: #e91d63;
+        color: white;
+        text-align: center;
+        line-height: 25px;
+        border-radius: 50%;
+    }
+    .mb_info_user
+    {
+        display: block;
+        position: fixed;
+        right: -300px;
+        width: 300px;
+        background-color: white;
+        z-index: 9999;
+        transition: 1s;
+        top: 0;
+        height: 100vh;
+    }
+    .mb_info_header
+    {
+        border-bottom: 1px solid #dedede;
+        padding: 20px;
+        align-items: center;
+    }
+
+    .mn_user_image
+    {
+        img {
+            max-width: 100%;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+    }
+
+    .mn_user_name
+    {
+        a {
+            color: #333;
+            line-height: 18px;
+            i {
+                font-size: 11px;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .mb_info_content
+    {
+        padding: 20px;
+        ul
+        {
+            li {
+                a {
+                    color: #0000008a;
+                    padding: 8px 0;
+                    display: inline-block;
+                    
+                    i {
+                        color: #ccc;
+                        font-size: 11px;
+                        width: 18px;
+                    }
+                }
+            }
+        }
+        .sign-out-alt
+        {
+            border-top: 1px solid #dedede;
+            color: #0000008a;
+            padding: 8px 0;
+            display: block;
+
+            i {
+                color: #ccc;
+                font-size: 11px;
+                width: 18px;
+            }
+        }
+    }
+}

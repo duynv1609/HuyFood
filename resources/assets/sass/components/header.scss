@@ -1,0 +1,181 @@
+.header_top
+{
+    .nav_top
+    {
+        padding: 5px 0;
+        ul {
+            width: 100%;
+            text-align: right;
+            li {
+                display: inline-block;
+                a {
+                    padding: 5px 10px;
+                    margin-right: 5px;
+                    color: #a4a4a4;
+                    font-size: 13px;
+                    i {
+                        font-size: 13px;
+                        margin-right: 5px;
+                    }
+                    &:first-child{
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .header_content
+    {
+        align-items: center;
+        &_logo
+        {
+            a {
+                img {
+                    width: 160px;
+                    height: 60px;
+                }
+            }
+        }
+
+        &_search
+        {
+             form
+             {
+                 align-items: center;
+                 margin: 5px;
+                 position: relative;
+
+                 button {
+                     position: absolute;
+                     right: 10px;
+                     border: none;
+                     &:focus{
+                         outline: none;
+                     }
+                     &:hover
+                     {
+                         cursor: pointer;
+                     }
+                     color: #999;
+                     background-color: white;
+                 }
+             }
+        }
+
+        &_right
+        {
+            ul {
+                li {
+                    display: inline-block;
+                    a {
+                        padding: 5px 10px;
+                        align-items: center;
+                        color: #3e3e3e;
+                        i {
+                            font-size: 30px;
+                            margin-right: 5px;
+                            color: #e91e63;
+                        }
+                        span{
+                            
+                        }
+                    }
+                }
+            }
+
+            .nav_user
+            {
+                display: flex;
+                align-items: center;
+                span {
+                    i {
+                        font-size: 30px;
+                        margin-right: 5px;
+                        color: #e91e63;
+                    }
+                }
+            }
+
+            .shopping_nav
+            {
+                position: relative;
+                i {
+                    color: #999;
+                }
+
+                span {
+                    position: absolute;
+                    top: -20px;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    background: #e91e63;
+                    text-align: center;
+                    line-height: 20px;
+                    color: white;
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 576px){
+    .header_top
+    {
+        .nav_top
+        {
+            ul {
+                float: none;
+                display: flex;
+                li {
+                    a{
+                        padding-left: 8px;
+                        padding-right: 8px;
+                    }
+                }
+            }
+        }
+
+        .header_content
+        {
+            &_logo
+            {
+                img {
+                    max-width: 100%;
+                }
+            }
+
+            &_right
+            {
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px){
+
+}
+
+@media only screen and (min-width: 992px){
+
+}
+
+@media all  and (max-width: 1024px)
+{
+    .header_content
+    {
+        flex-flow: wrap;
+         &_search {
+            width: 80% !important;
+        }
+
+        &_right
+        {
+            width: 100% !important;
+        }
+    }
+}
