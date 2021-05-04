@@ -16,22 +16,22 @@ class HomeController extends FrontendController
 	{
 		parent::__construct();
 	}
-	
+
 	public function index()
 	{
 		$productHot = Product::where([
 		   'pro_hot' => Product::HOT_ON,
 		   'pro_active' => Product::STATUS_PUBLIC
 		])->limit(10)->get();
-		
+
 		$articleNews = Article::orderBy('id','DESC')->limit(3)->get();
-		
+
 		$categoriesHome = Category::with('products')
 				->where('c_home',Category::HOME)
 				->where('c_active',Category::STATUS_PUBLIC)
 				->limit(3)
 				->get();
-		
+
 		$productSuggest = [];
 		//Kiểm tra nguồ dùng dang nhap
 		if (get_data_user('web'))
@@ -40,28 +40,28 @@ class HomeController extends FrontendController
 				'tr_user_id' => get_data_user('web'),
 				'tr_status'  => Transaction::STATUS_DONE
 			])->pluck('id');
-			
+
 			if (!empty($transactions))
 			{
 				$listId = Order::whereIn('or_transaction_id',$transactions)->distinct()->pluck('or_product_id');
-				
+
 				if ( !empty($listId))
 				{
-					
+
 					$listIdCategory = Product::whereIn('id',$listId)->distinct()->pluck('pro_category_id');
-					
+
 					if ($listIdCategory)
 					{
 						$productSuggest = Product::whereIn('pro_category_id',$listIdCategory)->limit(8)->get();
 					}
-					
+
 				}
-				
+
 			}
-			
+
 		}
 		// chua dang nhap thi thoi
-		
+
 		$ratingnew = Rating::orderBy('id','DESC')->limit(5)->get();
 
 		$viewData = [
@@ -71,10 +71,10 @@ class HomeController extends FrontendController
 			'productSuggest' => $productSuggest,
 			'ratingnew'		 => $ratingnew,
 		];
-		
+
         return view('home.index',$viewData);
     }
-    
+
     public function renderProductView(Request $request)
 	{
 		if ($request->ajax())
@@ -82,9 +82,9 @@ class HomeController extends FrontendController
 			$listID = $request->id;
 			$products = Product::whereIn('id',$listID)->get();
 			$html = view('components.product_view',compact('products'))->render();
-			
+
 			return response()->json(['data' => $html]);
 		}
-		
+
 	}
 }

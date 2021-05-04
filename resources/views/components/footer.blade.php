@@ -1,128 +1,132 @@
-<footer>
-    <!-- top footer area start -->
-    <div class="top-footer-area">
+<!-- Footer -->
+<footer id="footer">
+    <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-snap-footer">
-                        <div class="snap-footer-title">
-                            <h4>Thông tin công ty</h4>
-                        </div>
-                        <div class="cakewalk-footer-content">
-                            <p class="footer-des">Sửa mô tả</p>
-                            <a href="#" class="read-more">Xem thêm ...</a>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-col">
+                    <div class="block text">
+                        <div class="block-content">
+                            <a href="home-2.html" class="logo-footer">
+                                <img src="{{asset('img/logo-2.png')}}" alt="Logo">
+                            </a>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+                                Ut enim ad minim veniam, quis nostrud exercita tion ullamco laboris nisi ut aliquip.
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-snap-footer">
-                        <div class="snap-footer-title">
-                            <h4>Thông tin</h4>
-                        </div>
-                        <div class="cakewalk-footer-content">
+
+                    <div class="block social">
+                        <div class="block-content">
                             <ul>
-                                <li><a href="{{ route('get.about_us') }}">Về chúng tôi</a></li>
-                                <li><a href="{{ route('get.giaohang') }}">Thông tin giao hàng</a></li>
-                                <li><a href="{{ route('get.baomat') }}">Chính sách bảo mật</a></li>
-                                <li><a href="{{ route('get.dieukhoansudung') }}">Điều khoản sử dụng</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="zmdi zmdi-dribbble"></i></a></li>
+                                <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="single-snap-footer">
-                        <div class="snap-footer-title">
-                            <h4>Tài khoản</h4>
-                        </div>
-                        <div class="cakewalk-footer-content">
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-col">
+                    <div class="block menu">
+                        <h2 class="block-title">Information</h2>
+
+                        <div class="block-content">
                             <ul>
-                                <li><a href="{{ route('user.dashboard') }}" title="Quản lý tổng quan">Quản lý</a></li>
-                                <li><a href="{{ route('get.list.shopping.cart') }}">Giỏ hàng</a></li>
+                                <li><a href="#">Specials</a></li>
+                                <li><a href="#">New products</a></li>
+                                <li><a href="#">Best sellers</a></li>
+                                <li><a href="#">Terms and conditions</a></li>
+                                <li><a href="#">Our stores</a></li>
+                                <li><a href="#">Contact us</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 hidden-sm">
-                    <div class="single-snap-footer">
-                        <div class="snap-footer-title">
-                            <h4>Thông tin khác</h4>
-                        </div>
-                        <div class="cakewalk-footer-content">
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-col">
+                    <div class="block menu">
+                        <h2 class="block-title">Your Account</h2>
+
+                        <div class="block-content">
                             <ul>
-                                <li><a href="{{ route('get.contact') }}">Liên hệ</a></li>
+                                <li><a href="#">My orders</a></li>
+                                <li><a href="#">My merchandise returns</a></li>
+                                <li><a href="#">My credit slips</a></li>
+                                <li><a href="#">My addresses</a></li>
+                                <li><a href="#">My personal info</a></li>
+                                <li><a href="#">My vouchers</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 hidden-sm">
-                    <div class="single-snap-footer">
-                        <div class="snap-footer-title">
-                            <h4>Theo dõi</h4>
-                        </div>
-                        <div class="cakewalk-footer-content social-footer">
-                            <ul>
-                                <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a><span> Facebook</span></li>
-                                <li><a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a><span> Google Plus</span></li>
-                                <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a><span> Twitter</span></li>
-                                <li><a href="https://youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a><span> Youtube</span></li>
-                            </ul>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-col">
+                    <div class="block text">
+                        <h2 class="block-title">Contact Us</h2>
+
+                        <div class="block-content">
+                            <div class="contact">
+                                <div class="item d-flex">
+                                    <div>
+                                        <i class="zmdi zmdi-home"></i>
+                                    </div>
+                                    <div>
+                                        <span>123 Suspendis matti, VST District, NY Accums, North American</span>
+                                    </div>
+                                </div>
+                                <div class="item d-flex">
+                                    <div>
+                                        <i class="zmdi zmdi-phone-in-talk"></i>
+                                    </div>
+                                    <div>
+                                        <span>0123-456-78910<br>0987-654-32100</span>
+                                    </div>
+                                </div>
+                                <div class="item d-flex">
+                                    <div>
+                                        <i class="zmdi zmdi-email"></i>
+                                    </div>
+                                    <div>
+                                        <span><a href="mailto:support@domain.com">support@domain.com</a><br><a href="mailto:contact@domain.com">contact@domain.com</a></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- top footer area end -->
-    <!-- info footer start -->
-    <div class="info-footer">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-4">
-                    <div class="info-fcontainer">
-                        <div class="infof-icon">
-                            <i class="fa fa-map-marker"></i>
-                        </div>
-                        <div class="infof-content">
-                            <h3>Địa chỉ</h3>
-                            <p>Ngõ 204 - Số nhà 19 - Phố Mễ Trì Thượng</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="info-fcontainer">
-                        <div class="infof-icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="infof-content">
-                            <h3>Số điện thoại</h3>
-                            <p>0972.639.826</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="info-fcontainer">
-                        <div class="infof-icon">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        <div class="infof-content">
-                            <h3>Email Support</h3>
-                            <p>singleyoung999@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 hidden-sm">
-                    <div class="info-fcontainer">
-                        <div class="infof-icon">
-                            <i class="fa fa-clock-o"></i>
-                        </div>
-                        <div class="infof-content">
-                            <h3>Giờ làm việc</h3>
-                            <p>Sat - Thu : 9:00 am - 22:00 pm</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="payment">
+                <img src="{{asset('img/payment.png')}}" alt="Payment">
             </div>
+
+            <div class="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></div>
         </div>
     </div>
-    <!-- footer address area end -->
 </footer>
+
+<!-- Go Up button -->
+<div class="go-up">
+    <a href="#">
+        <i class="fa fa-long-arrow-up"></i>
+    </a>
+</div>
+
+<!-- Page Loader -->
+<div id="page-preloader">
+    <div class="page-loading">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
