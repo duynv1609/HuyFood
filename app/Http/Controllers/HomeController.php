@@ -8,6 +8,8 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\Rating;
+use Carbon\Carbon;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class HomeController extends FrontendController
@@ -19,10 +21,39 @@ class HomeController extends FrontendController
 
 	public function index()
 	{
-		$productHot = Product::where([
-		   'pro_hot' => Product::HOT_ON,
-		   'pro_active' => Product::STATUS_PUBLIC
-		])->limit(10)->get();
+		$productBestSeller = Product::where(
+		   'pro_sale','>',10)->where('pro_active', '=',1)->limit(12)->get();
+
+        $productNewArrivals = Product::where([
+            'pro_hot' => Product::HOT_ON,
+            'pro_active' => Product::STATUS_PUBLIC
+        ])->limit(12)->get();
+
+        $productOnSales = Product::where(
+            'pro_sale','>',10)->where('pro_active', '=',1)->limit(12)->whereDate('created_at', Carbon::today())
+            ->get();
+
+        $productFruits = Product::where([
+            'pro_category_id'=> 9,
+            'pro_active' => Product::STATUS_PUBLIC
+        ])
+            ->limit(4)
+            ->get();
+
+        $productJuices = Product::where([
+            'pro_category_id'=> 10,
+            'pro_active' => Product::STATUS_PUBLIC
+        ])
+            ->limit(4)
+            ->get();
+
+        $newArrivals = Product::where([
+            'pro_category_id'=> 11,
+            'pro_active' => Product::STATUS_PUBLIC
+        ])
+            ->limit(4)
+            ->get();
+        $cart = Cart::content();
 
 		$articleNews = Article::orderBy('id','DESC')->limit(3)->get();
 
@@ -33,7 +64,7 @@ class HomeController extends FrontendController
 				->get();
 
 		$productSuggest = [];
-		//Kiểm tra nguồ dùng dang nhap
+		//Kiểm tra nguoi dùng dang nhap
 		if (get_data_user('web'))
 		{
 			$transactions = Transaction::where([
@@ -54,22 +85,27 @@ class HomeController extends FrontendController
 					{
 						$productSuggest = Product::whereIn('pro_category_id',$listIdCategory)->limit(8)->get();
 					}
-
 				}
-
 			}
-
 		}
 		// chua dang nhap thi thoi
 
 		$ratingnew = Rating::orderBy('id','DESC')->limit(5)->get();
 
+
+
 		$viewData = [
-			'productHot'     => $productHot,
+			'productBestSeller'     => $productBestSeller,
 			'articleNews'    => $articleNews,
 			'categoriesHome' => $categoriesHome,
 			'productSuggest' => $productSuggest,
 			'ratingnew'		 => $ratingnew,
+            'productNewArrivals' =>$productNewArrivals,
+            'productOnSales' =>$productOnSales,
+            'productFruits'=>$productFruits,
+            'productJuices'=>$productJuices,
+            'newArrivals'=>$newArrivals,
+            'cart' =>$cart
 		];
 
         return view('home.index',$viewData);

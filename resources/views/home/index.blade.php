@@ -13,90 +13,15 @@
                         </div>
 
                         <div class="block-content">
+                            @foreach($categories as $item)
                             <div class="item">
 											<span class="arrow collapsed" data-toggle="collapse" data-target="#vegetables" aria-expanded="false" role="button">
 												<i class="fa fa-angle-down" aria-hidden="true"></i>
 												<i class="fa fa-angle-right" aria-hidden="true"></i>
 											</span>
-
-                                <a class="category-title" href="product-grid-left-sidebar.html">Vegetables</a>
-                                <div class="sub-category collapse" id="vegetables" aria-expanded="true" role="main">
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Tomato</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Broccoli</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Cabbage</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Cucumber</a>
-                                    </div>
-                                </div>
+                                <a class="category-title" href="{{ route('get.list.product',[$item->c_slug,$item->id]) }}">{{$item->c_name}}</a>
                             </div>
-
-                            <div class="item">
-											<span class="arrow collapsed" data-toggle="collapse" data-target="#fruits" aria-expanded="false" role="button">
-												<i class="fa fa-angle-down" aria-hidden="true"></i>
-												<i class="fa fa-angle-right" aria-hidden="true"></i>
-											</span>
-
-                                <a class="category-title" href="product-grid-left-sidebar.html">Fruits</a>
-                                <div class="sub-category collapse" id="fruits" aria-expanded="true" role="main">
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Orange</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Apple</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Banana</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Strawberry</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-											<span class="arrow collapsed" data-toggle="collapse" data-target="#juices" aria-expanded="false" role="button">
-												<i class="fa fa-angle-down" aria-hidden="true"></i>
-												<i class="fa fa-angle-right" aria-hidden="true"></i>
-											</span>
-
-                                <a class="category-title" href="product-grid-left-sidebar.html">Juices</a>
-                                <div class="sub-category collapse" id="juices" aria-expanded="true" role="main">
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Orange Juices</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Tomato Juices</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Apple Juices</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Peaches Juices</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <a class="category-title" href="product-grid-left-sidebar.html">Tea and Coffee</a>
-                            </div>
-
-                            <div class="item">
-                                <a class="category-title" href="product-grid-left-sidebar.html">Jam</a>
-                            </div>
-
-                            <div class="item">
-                                <a class="category-title" href="product-grid-left-sidebar.html">SeaFood</a>
-                            </div>
-
-                            <div class="item">
-                                <a class="category-title" href="product-grid-left-sidebar.html">Fresh Meats</a>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
 
@@ -139,7 +64,7 @@
                                     </div>
 
                                     <div class="product-buttons">
-                                        <a class="add-to-cart" href="#">
+                                        <a class="add-to-cart" href="{{ route('add.shopping.cart',$item->id) }}">
                                             <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                         </a>
 
@@ -183,7 +108,7 @@
                                     </div>
 
                                     <div class="product-buttons">
-                                        <a class="add-to-cart" href="#">
+                                        <a class="add-to-cart" href="{{ route('add.shopping.cart',$item->id) }}">
                                             <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                         </a>
 
@@ -260,7 +185,7 @@
                             <div class="tab-nav">
                                 <ul>
                                     <li class="active">
-                                        <a data-toggle="tab" href="new-arrivals.html">
+                                        <a data-toggle="tab" href="#new-arrivals">
                                             <span>New Arrivals</span>
                                         </a>
                                     </li>
@@ -282,17 +207,17 @@
                                 <!-- New Arrivals -->
                                 <div role="tabpanel" class="tab-pane fade in active" id="new-arrivals">
                                     <div class="products owl-theme owl-carousel">
-                                        @foreach($productHot as $proHot)
+                                        @foreach($productNewArrivals as $item)
                                         <div class="product-item">
                                             <div class="product-image">
-                                                <a href="{{ route('get.detail.product',[$proHot->pro_slug,$proHot->id]) }}">
-                                                    <img src="{{asset('img/product/8.jpg')}}" alt="Product Image">
+                                                <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                    <img src="{{asset(pare_url_file($item->pro_avatar ))}}" alt="Product Image">
                                                 </a>
                                             </div>
 
                                             <div class="product-title" style="white-space: nowrap;overflow:hidden; text-overflow: ellipsis;">
-                                                <a href="{{ route('get.detail.product',[$proHot->pro_slug,$proHot->id]) }}">
-                                                    {{ $proHot->pro_name }}
+                                                <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                    {{ $item->pro_name }}
                                                 </a>
                                             </div>
 
@@ -305,11 +230,11 @@
                                             </div>
 
                                             <div class="product-price">
-                                                <span class="sale-price">${{ number_format($proHot->pro_price,0,',','.') }}</span>
+                                                <span class="sale-price">${{ number_format($item->pro_price,0,',','.') }}</span>
                                             </div>
 
                                             <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
+                                                <a class="add-to-cart" href="{{ route('add.shopping.cart',$item->id) }}">
                                                     <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                                 </a>
 
@@ -329,46 +254,47 @@
                                 <!-- Best Seller -->
                                 <div role="tabpanel" class="tab-pane fade" id="best-seller">
                                     <div class="products owl-theme owl-carousel">
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/8.jpg')}}" alt="Product Image">
-                                                </a>
+                                        @foreach($productBestSeller as $item)
+                                            <div class="product-item">
+                                                <div class="product-image">
+                                                    <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                        <img src="{{asset(pare_url_file($item->pro_avatar ))}}" alt="Product Image">
+                                                    </a>
+                                                </div>
+
+                                                <div class="product-title" style="white-space: nowrap;overflow:hidden; text-overflow: ellipsis;">
+                                                    <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                        {{ $item->pro_name }}
+                                                    </a>
+                                                </div>
+
+                                                <div class="product-rating">
+                                                    <div class="star on"></div>
+                                                    <div class="star on"></div>
+                                                    <div class="star on "></div>
+                                                    <div class="star on"></div>
+                                                    <div class="star"></div>
+                                                </div>
+
+                                                <div class="product-price">
+                                                    <span class="sale-price">${{ number_format($item->pro_price,0,',','.') }}</span>
+                                                </div>
+
+                                                <div class="product-buttons">
+                                                    <a class="add-to-cart" href="{{ route('add.shopping.cart',$item->id) }}">
+                                                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <a class="add-wishlist" href="#">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <a class="quickview" href="#">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$120.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
+                                        @endforeach
                                     </div>
                                 </div>
 
@@ -376,16 +302,17 @@
                                 <!-- On Sale -->
                                 <div role="tabpanel" class="tab-pane fade" id="on-sale">
                                     <div class="products owl-theme owl-carousel">
+                                        @foreach($productOnSales as $item)
                                         <div class="product-item">
                                             <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/4.jpg')}}" alt="Product Image">
+                                                <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                    <img src="{{asset(pare_url_file($item->pro_avatar ))}}" alt="Product Image">
                                                 </a>
                                             </div>
 
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
+                                            <div class="product-title" style="white-space: nowrap;overflow:hidden; text-overflow: ellipsis;">
+                                                <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                    {{ $item->pro_name }}
                                                 </a>
                                             </div>
 
@@ -398,12 +325,12 @@
                                             </div>
 
                                             <div class="product-price">
-                                                <span class="sale-price">$80.00</span>
-                                                <span class="base-price">$90.00</span>
+                                                <span class="sale-price">${{ number_format($item->pro_price - ($item->pro_price * ($item->pro_sale/100)),0,',','.') }}</span>
+                                                <span class="base-price">${{ number_format($item->pro_price,0,',','.') }}</span>
                                             </div>
 
                                             <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
+                                                <a class="add-to-cart" href="{{ route('add.shopping.cart',$item->id) }}">
                                                     <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                                 </a>
 
@@ -416,127 +343,7 @@
                                                 </a>
                                             </div>
                                         </div>
-
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/8.jpg')}}" alt="Product Image">
-                                                </a>
-                                            </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$120.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/9.jpg')}}" alt="Product Image">
-                                                </a>
-                                            </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$80.00</span>
-                                                <span class="base-price">$90.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/10.jpg')}}" alt="Product Image">
-                                                </a>
-                                            </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$96.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -568,127 +375,53 @@
 
                                 <div class="block-content">
                                     <div class="products owl-theme owl-carousel">
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/4.jpg')}}" alt="Product Image">
-                                                </a>
+                                        @foreach($productFruits as $item)
+                                            <div class="product-item">
+                                                <?php
+                                                $ageDetail = 0;
+
+                                                if ($item->pro_total_rating)
+                                                {
+                                                    $ageDetail  =  round($item->pro_total_number / $item->pro_total_rating,2);
+                                                }
+                                                ?>
+                                                <div class="product-image">
+                                                    <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                        <img src="{{asset(pare_url_file($item->pro_avatar ))}}" alt="Product Image">
+                                                    </a>
+                                                </div>
+
+                                                <div class="product-title" style="white-space: nowrap;overflow:hidden; text-overflow: ellipsis;">
+                                                    <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                        {{ $item->pro_name }}
+                                                    </a>
+                                                </div>
+
+                                                <div class="product-rating">
+                                                    @for($i =1 ; $i<=5 ;$i ++)
+                                                        <div class="star {{ $i <= $ageDetail ? 'on' : '' }}"></div>
+                                                    @endfor
+                                                </div>
+
+                                                <div class="product-price">
+                                                    <span class="sale-price">${{ number_format($item->pro_price,0,',','.') }}</span>
+                                                </div>
+
+                                                <div class="product-buttons">
+                                                    <a class="add-to-cart" href="{{ route('add.shopping.cart',$item->id) }}">
+                                                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <a class="add-wishlist" href="#">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <a class="quickview" href="#">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$80.00</span>
-                                                <span class="base-price">$90.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/8.jpg')}}" alt="Product Image">
-                                                </a>
-                                            </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$120.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/2.jpg')}}" alt="Product Image">
-                                                </a>
-                                            </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$80.00</span>
-                                                <span class="base-price">$90.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -702,127 +435,47 @@
 
                                 <div class="block-content">
                                     <div class="products owl-theme owl-carousel">
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/16.jpg')}}" alt="Product Image">
-                                                </a>
+                                        @foreach($productJuices as $item)
+                                            <div class="product-item">
+                                                <div class="product-image">
+                                                    <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                        <img src="{{asset(pare_url_file($item->pro_avatar ))}}" alt="Product Image">
+                                                    </a>
+                                                </div>
+
+                                                <div class="product-title" style="white-space: nowrap;overflow:hidden; text-overflow: ellipsis;">
+                                                    <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                                        {{ $item->pro_name }}
+                                                    </a>
+                                                </div>
+
+                                                <div class="product-rating">
+                                                    <div class="star on"></div>
+                                                    <div class="star on"></div>
+                                                    <div class="star on "></div>
+                                                    <div class="star on"></div>
+                                                    <div class="star"></div>
+                                                </div>
+
+                                                <div class="product-price">
+                                                    <span class="sale-price">${{ number_format($item->pro_price,0,',','.') }}</span>
+                                                </div>
+
+                                                <div class="product-buttons">
+                                                    <a class="add-to-cart" href="{{ route('add.shopping.cart',$item->id) }}">
+                                                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <a class="add-wishlist" href="#">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    <a class="quickview" href="#">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$80.00</span>
-                                                <span class="base-price">$90.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/13.jpg')}}" alt="Product Image">
-                                                </a>
-                                            </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$120.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="product-item">
-                                            <div class="product-image">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    <img src="{{asset('img/product/28.jpg')}}" alt="Product Image">
-                                                </a>
-                                            </div>
-
-                                            <div class="product-title">
-                                                <a href="product-detail-left-sidebar.html">
-                                                    Organic Strawberry Fruits
-                                                </a>
-                                            </div>
-
-                                            <div class="product-rating">
-                                                <div class="star on"></div>
-                                                <div class="star on"></div>
-                                                <div class="star on "></div>
-                                                <div class="star on"></div>
-                                                <div class="star"></div>
-                                            </div>
-
-                                            <div class="product-price">
-                                                <span class="sale-price">$80.00</span>
-                                                <span class="base-price">$90.00</span>
-                                            </div>
-
-                                            <div class="product-buttons">
-                                                <a class="add-to-cart" href="#">
-                                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                </a>
-
-                                                <a class="quickview" href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

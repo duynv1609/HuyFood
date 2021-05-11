@@ -6,17 +6,17 @@
     <div class="block-content">
         <div class="products owl-theme owl-carousel">
             <div class="item">
-                <div class="product-item">
-                    <div class="product-image">
-                        <a href="product-detail-left-sidebar.html">
-                            <img src="{{asset('img/product/1.jpg')}}" alt="Product Image">
-                        </a>
-                    </div>
+                @foreach($newArrivals as $item)
+                    <div class="product-item">
+                        <div class="product-image">
+                            <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                <img src="{{asset(pare_url_file($item->pro_avatar ))}}" alt="Product Image">
+                            </a>
+                        </div>
 
-                    <div class="product-info">
-                        <div class="product-title">
-                            <a href="product-detail-left-sidebar.html">
-                                Organic Strawberry Fruits
+                        <div class="product-title" style="white-space: nowrap;overflow:hidden; text-overflow: ellipsis;">
+                            <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                {{ $item->pro_name }}
                             </a>
                         </div>
 
@@ -29,8 +29,7 @@
                         </div>
 
                         <div class="product-price">
-                            <span class="sale-price">$35.00</span>
-                            <span class="base-price">$55.00</span>
+                            <span class="sale-price">${{ number_format($item->pro_price,0,',','.') }}</span>
                         </div>
 
                         <div class="product-buttons">
@@ -47,19 +46,20 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                @endforeach
+            </div>
+            <div class="item">
+                @foreach($productJuices as $item)
+                    <div class="product-item">
+                        <div class="product-image">
+                            <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                <img src="{{asset(pare_url_file($item->pro_avatar ))}}" alt="Product Image">
+                            </a>
+                        </div>
 
-                <div class="product-item">
-                    <div class="product-image">
-                        <a href="product-detail-left-sidebar.html">
-                            <img src="{{asset('img/product/2.jpg')}}" alt="Product Image">
-                        </a>
-                    </div>
-
-                    <div class="product-info">
-                        <div class="product-title">
-                            <a href="product-detail-left-sidebar.html">
-                                Organic Strawberry Fruits
+                        <div class="product-title" style="white-space: nowrap;overflow:hidden; text-overflow: ellipsis;">
+                            <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                {{ $item->pro_name }}
                             </a>
                         </div>
 
@@ -72,8 +72,7 @@
                         </div>
 
                         <div class="product-price">
-                            <span class="sale-price">$68.00</span>
-                            <span class="base-price">$76.00</span>
+                            <span class="sale-price">${{ number_format($item->pro_price,0,',','.') }}</span>
                         </div>
 
                         <div class="product-buttons">
@@ -90,19 +89,20 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                @endforeach
+            </div>
+            <div class="item">
+                @foreach($productFruits as $item)
+                    <div class="product-item">
+                        <div class="product-image">
+                            <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                <img src="{{asset(pare_url_file($item->pro_avatar ))}}" alt="Product Image">
+                            </a>
+                        </div>
 
-                <div class="product-item">
-                    <div class="product-image">
-                        <a href="product-detail-left-sidebar.html">
-                            <img src="{{asset('img/product/3.jpg')}}" alt="Product Image">
-                        </a>
-                    </div>
-
-                    <div class="product-info">
-                        <div class="product-title">
-                            <a href="product-detail-left-sidebar.html">
-                                Organic Strawberry Fruits
+                        <div class="product-title" style="white-space: nowrap;overflow:hidden; text-overflow: ellipsis;">
+                            <a href="{{ route('get.detail.product',[$item->pro_slug,$item->id]) }}">
+                                {{ $item->pro_name }}
                             </a>
                         </div>
 
@@ -115,7 +115,7 @@
                         </div>
 
                         <div class="product-price">
-                            <span class="sale-price">$85.00</span>
+                            <span class="sale-price">${{ number_format($item->pro_price,0,',','.') }}</span>
                         </div>
 
                         <div class="product-buttons">
@@ -132,7 +132,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

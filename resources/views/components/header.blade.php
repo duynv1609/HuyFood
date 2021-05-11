@@ -114,26 +114,12 @@
                                 <a href="product-grid-left-sidebar.html" title="Product">Product</a>
                                 <div class="dropdown-menu">
                                     <ul>
+                                        @foreach($categories as $item)
                                         <li class="has-image">
                                             <img src="{{asset('img/product/product-category-1.png')}}" alt="Product Category Image">
-                                            <a href="product-grid-left-sidebar.html" title="Vegetables">Vegetables</a>
+                                            <a href="product-grid-left-sidebar.html" title="Vegetables">{{$item->c_name}}</a>
                                         </li>
-                                        <li class="has-image">
-                                            <img src="{{asset('img/product/product-category-2.png')}}" alt="Product Category Image">
-                                            <a href="product-grid-left-sidebar.html" title="Fruits">Fruits</a>
-                                        </li>
-                                        <li class="has-image">
-                                            <img src="{{asset('img/product/product-category-3.png')}}" alt="Product Category Image">
-                                            <a href="product-grid-left-sidebar.html" title="Bread">Bread</a>
-                                        </li>
-                                        <li class="has-image">
-                                            <img src="{{asset('img/product/product-category-4.png')}}" alt="Product Category Image">
-                                            <a href="product-grid-left-sidebar.html" title="Juices">Juices</a>
-                                        </li>
-                                        <li class="has-image">
-                                            <img src="{{asset('img/product/product-category-5.png')}}" alt="Product Category Image">
-                                            <a href="product-grid-left-sidebar.html" title="Tea and coffee">Tea and coffee</a>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </li>
@@ -215,25 +201,26 @@
                     <div class="block-cart dropdown">
                         <div class="cart-title">
                             <i class="fa fa-shopping-basket"></i>
-                            <span class="cart-count">2</span>
+                            <span class="cart-count">{{ \Cart::count() }}</span>
                         </div>
 
                         <div class="dropdown-content">
                             <div class="cart-content">
                                 <table>
                                     <tbody>
+                                    @foreach($cart as $item)
                                     <tr>
                                         <td class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="{{asset('img/product/7.jpg')}}" alt="Product">
+                                                <img src="{{asset(pare_url_file($item->options->avatar))}}" alt="Product">
                                             </a>
                                         </td>
                                         <td>
                                             <div class="product-name">
-                                                <a href="product-detail-left-sidebar.html">Organic Strawberry Fruits</a>
+                                                <a href="product-detail-left-sidebar.html">{{$item->name}}</a>
                                             </div>
                                             <div>
-                                                2 x <span class="product-price">$28.98</span>
+                                                {{$item->qty}} x <span class="product-price">${{$item->price}}</span>
                                             </div>
                                         </td>
                                         <td class="action">
@@ -242,38 +229,19 @@
                                             </a>
                                         </td>
                                     </tr>
+                                    @endforeach
 
-                                    <tr>
-                                        <td class="product-image">
-                                            <a href="product-detail-left-sidebar.html">
-                                                <img src="{{asset('img/product/6.jpg')}}" alt="Product">
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <div class="product-name">
-                                                <a href="product-detail-left-sidebar.html">Organic Strawberry</a>
-                                            </div>
-                                            <div>
-                                                1 x <span class="product-price">$35.00</span>
-                                            </div>
-                                        </td>
-                                        <td class="action">
-                                            <a class="remove" href="#">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
 
                                     <tr class="total">
                                         <td>Total:</td>
-                                        <td colspan="2">$92.96</td>
+                                        <td colspan="2">${{ \Cart::total(0) }}</td>
                                     </tr>
 
                                     <tr>
                                         <td colspan="3">
                                             <div class="cart-button">
                                                 <a class="btn btn-primary" href="product-cart.html" title="View Cart">View Cart</a>
-                                                <a class="btn btn-primary" href="product-checkout.html" title="Checkout">Checkout</a>
+                                                <a class="btn btn-primary" href="{{ route('get.list.shopping.cart') }}" title="Checkout">Checkout</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -285,8 +253,8 @@
 
                     <!-- Search -->
                     <div class="form-search">
-                        <form action="#" method="get">
-                            <input type="text" class="form-input" placeholder="Search">
+                        <form action="{{ route('get.product.list') }}" method="get">
+                            <input type="text" class="form-control" name="k" maxlength="128" placeholder="Search">
                             <button type="submit" class="fa fa-search"></button>
                         </form>
                     </div>
